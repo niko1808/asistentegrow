@@ -1,0 +1,814 @@
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --primary: #2e7d32;
+  --primary-dark: #1b5e20;
+  --secondary: #e8f5e9;
+  --danger: #c62828;
+  --donate: #ffb300;
+
+  --text: #2c2c2c;
+  --bg: linear-gradient(135deg, #f1f8f4, #e0efe6);
+  --card: #ffffff;
+
+  --radius: 10px;
+  --shadow-soft: 0 6px 18px rgba(0,0,0,0.08);
+  --shadow-strong: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   TEMA OSCURO
+========================= */
+body.dark {
+  --text: #e0e0e0;
+  --bg: #121212;
+  --card: #1e1e1e;
+  --secondary: #263238;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+nav button {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+/* =========================
+   BOTÓN TEMA
+========================= */
+.theme-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+main {
+  padding: 20px;
+}
+
+.section {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  max-width: 900px;
+  margin: auto;
+  animation: fadeUp 0.4s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   LISTAS
+========================= */
+li {
+  background: var(--secondary);
+  padding: 12px;
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+}
+
+/* =========================
+   BOTÓN DONAR
+========================= */
+.donate-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--donate);
+  color: #000;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   MODALES
+========================= */
+/* Overlay */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Mostrar modal */
+.modal.fade {
+  display: flex;
+}
+
+/* Contenido */
+.modal-content {
+  background: #1c6312;
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  max-width: 420px;
+  width: 90%;
+  color: #e5e7eb;
+  border: 1px solid #7c3aed55;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  animation: scaleIn 0.25s ease-out;
+}
+
+/* Título */
+.modal-content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: #a78bfa;
+}
+
+/* Texto */
+.modal-content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  color: #d1d5db;
+}
+
+/* Botón */
+.modal-content button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.65rem;
+  border: none;
+  border-radius: 8px;
+  background: #09a82b;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.modal-content button:hover {
+  background: #0be91d;
+}
+
+.modal-content button:active {
+  transform: scale(0.97);
+}
+
+/* Animación suave */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+footer {
+  margin-top: 40px;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  padding: 24px 16px;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 14px;
+  opacity: 0.9;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* =========================
+   CONTENIDO DINÁMICO - PLANTS
+   (NO rompe estilos existentes)
+========================= */
+
+/* Contenedor principal dinámico */
+#plants {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Título */
+#plants h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  color: var(--primary-dark);
+}
+
+/* Inputs y select dinámicos */
+#plants input,
+#plants select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: var(--card);
+  color: var(--text);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+#plants input:focus,
+#plants select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.2);
+}
+
+/* Botón Agregar / Actualizar */
+#plants > button {
+  align-self: flex-start;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#plants > button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+#plants > button:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   LISTA DINÁMICA
+========================= */
+#plants ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Ítem de planta */
+#plants li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: var(--secondary);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  animation: fadeUp 0.25s ease;
+}
+
+/* Texto */
+#plants li strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* =========================
+   BOTONES DENTRO DE LA LISTA
+========================= */
+#plants li button {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary-dark);
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+}
+
+#plants li button:hover {
+  background: var(--primary);
+  color: white;
+}
+
+#plants li button:active {
+  transform: scale(0.95);
+}
+
+/* Botón eliminar */
+#plants li button:last-child {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+#plants li button:last-child:hover {
+  background: var(--danger);
+  color: white;
+}
+
+/* =========================
+   RESPONSIVE SEGURO
+========================= */
+@media (max-width: 600px) {
+  #plants li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #plants li button {
+    width: 100%;
+  }
+}
+
+/* =========================
+   CONTENIDO DINÁMICO - CALCULATOR
+   (Safe / No rompe estilos)
+========================= */
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Título */
+#calculator h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  color: var(--primary-dark);
+}
+
+/* Select e input */
+#calculator select,
+#calculator input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: var(--card);
+  color: var(--text);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+#calculator select:focus,
+#calculator input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.2);
+}
+
+/* Botón calcular */
+#calculator button {
+  align-self: flex-start;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+}
+
+#calculator button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+#calculator button:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   RESULTADO (para futuro)
+========================= */
+#calculator .result {
+  margin-top: 10px;
+  padding: 14px;
+  background: var(--secondary);
+  border-radius: var(--radius);
+  font-weight: 600;
+  animation: fadeUp 0.25s ease;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+  #calculator button {
+    width: 100%;
+  }
+}
+
+/* =========================
+   DIAGNÓSTICO
+========================= */
+
+#diagnosis {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeUp 0.4s ease;
+}
+
+#diagnosis h2 {
+  margin-top: 0;
+  color: var(--primary);
+  font-size: 20px;
+}
+
+/* Contenedor de botones */
+#diagnosis button {
+  background: var(--secondary);
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Hover */
+#diagnosis button:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+/* Active */
+#diagnosis button:active {
+  transform: scale(0.97);
+}
+
+/* Dark mode refinado */
+body.dark #diagnosis button {
+  background: #263238;
+  border-color: rgba(255,255,255,0.05);
+}
+
+body.dark #diagnosis button:hover {
+  background: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #diagnosis button {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}
+
+
+/* =========================
+   AMBIENTE
+========================= */
+
+#environment {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeUp 0.4s ease;
+}
+
+#environment h2 {
+  margin-top: 0;
+  color: var(--primary);
+  font-size: 20px;
+}
+
+/* Inputs */
+#environment input {
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  padding: 12px;
+  font-size: 14px;
+  color: var(--text);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+#environment input::placeholder {
+  opacity: 0.7;
+}
+
+#environment input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46,125,50,0.15);
+}
+
+/* Botón verificar */
+#environment button {
+  margin-top: 6px;
+  align-self: flex-start;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+#environment button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+#environment button:active {
+  transform: scale(0.97);
+}
+
+/* Dark mode */
+body.dark #environment input {
+  background: #1e1e1e;
+  border-color: rgba(255,255,255,0.1);
+}
+
+body.dark #environment input:focus {
+  box-shadow: 0 0 0 3px rgba(46,125,50,0.25);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #environment button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================
+   CALENDARIO
+========================= */
+
+#calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeUp 0.4s ease;
+}
+
+#calendar h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+/* Botón principal */
+#calendar button {
+  align-self: flex-start;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+#calendar button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  filter: brightness(1.05);
+}
+
+#calendar button:active {
+  transform: scale(0.96);
+}
+
+/* Dark mode */
+body.dark #calendar button {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #calendar button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* =========================
+   COSTOS
+========================= */
+
+#costs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeUp 0.4s ease;
+}
+
+#costs h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+/* Inputs */
+#costs input {
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#costs input::placeholder {
+  opacity: 0.7;
+}
+
+#costs input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.15);
+}
+
+/* Botón calcular */
+#costs button {
+  align-self: flex-start;
+  margin-top: 6px;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+#costs button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  filter: brightness(1.05);
+}
+
+#costs button:active {
+  transform: scale(0.96);
+}
+
+/* Dark mode */
+body.dark #costs input {
+  background: #1e1e1e;
+  border-color: rgba(255,255,255,0.08);
+}
+
+body.dark #costs button {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #costs button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade {
+  animation: fadeUp 0.3s ease;
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
