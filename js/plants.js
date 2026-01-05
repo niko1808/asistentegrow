@@ -103,7 +103,7 @@ function renderPlants() {
     <ul>
       ${plants.map(p => `
         <li>
-          <strong>${p.name}</strong> (${p.genetic}) - ${p.stage}
+          <strong>${p.name}</strong> (${p.genetic}) - ${p.stage} - ${p.id}
           <button onclick="editPlant(${p.id})">Editar</button>
           <button onclick="deletePlant(${p.id})">Eliminar</button>
         </li>

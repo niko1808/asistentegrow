@@ -3,93 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <title>Grow Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- MODAL LEGAL -->
-<div id="legalModal" class="modal fade">
-  <div class="modal-content scale-in">
-    <h2>Aviso legal</h2>
-    <p><strong>Grow Assistant</strong> es un software gratuito con fines informativos y organizativos.</p>
-    <p>No incentiva ni promueve el cultivo de cannabis ni ninguna actividad ilegal.</p>
-    <p>El cultivo puede ser ilegal en algunos países. El usuario es responsable de cumplir las leyes vigentes.</p>
-    <p>Los desarrolladores no apoyan ni avalan actos ilegales.</p>
-    <h2>Aviso importante – Fase Beta</h2>
+<!-- MODAL LEGAL --> <div id="legalModal" class="modal fade"> <div class="modal-content scale-in"> <h2>Aviso legal</h2> <p><strong>Grow Assistant</strong> es un software gratuito con fines informativos y organizativos.</p> <p>No incentiva ni promueve el cultivo de cannabis ni ninguna actividad ilegal.</p> <p>El cultivo puede ser ilegal en algunos países. El usuario es responsable de cumplir las leyes vigentes.</p> <p>Los desarrolladores no apoyan ni avalan actos ilegales.</p> <h2>Aviso importante – Fase Beta</h2> <p> <strong>Grow Assistant</strong> se encuentra actualmente en <strong>fase beta</strong>. </p> <p> Esto significa que el software está en desarrollo activo y puede presentar cambios en su funcionamiento, diseño, experiencia de usuario (UX/UI) y características disponibles sin previo aviso. </p> <p> El objetivo de esta etapa es probar, mejorar y optimizar la aplicación mediante el uso real y la retroalimentación de los usuarios. </p> <p> Al continuar, el usuario acepta que pueden existir errores, comportamientos inesperados o modificaciones futuras. </p> <button onclick="acceptLegal()">Entiendo y acepto</button> </div> </div> <!-- MODAL DONACIÓN --> <div id="donateModal" class="modal hidden fade"> <div class="modal-content scale-in"> <h2>Gracias por apoyar el proyecto</h2> <p>Este software es gratuito y se mantiene gracias a donaciones voluntarias.</p> <p> <strong>Mercado Pago</strong><br> Alias: <strong>axnsoft.corp</strong><br> Titular: <strong>Rodrigo Nicolás Mercado</strong> </p> <button onclick="closeDonate()">Cerrar</button> </div> </div>
 
-    <p>
-      <strong>Grow Assistant</strong> se encuentra actualmente en <strong>fase beta</strong>.
-    </p>
+<!-- APP -->
+<div id="app">
 
-    <p>
-      Esto significa que el software está en desarrollo activo y puede presentar cambios
-      en su funcionamiento, diseño, experiencia de usuario (UX/UI) y características
-      disponibles sin previo aviso.
-    </p>
+  <!-- HEADER -->
+  <header class="app-header">
+    <h1>Grow Assistant</h1>
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+  </header>
 
-    <p>
-      El objetivo de esta etapa es probar, mejorar y optimizar la aplicación mediante
-      el uso real y la retroalimentación de los usuarios.
-    </p>
-
-    <p>
-      Al continuar, el usuario acepta que pueden existir errores, comportamientos
-      inesperados o modificaciones futuras.
-    </p>
-    <button onclick="acceptLegal()">Entiendo y acepto</button>
-  </div>
-</div>
-
-<!-- MODAL DONACIÓN -->
-<div id="donateModal" class="modal hidden fade">
-  <div class="modal-content scale-in">
-    <h2>Gracias por apoyar el proyecto</h2>
-    <p>Este software es gratuito y se mantiene gracias a donaciones voluntarias.</p>
-    <p>
-      <strong>Mercado Pago</strong><br>
-      Alias: <strong>axnsoft.corp</strong><br>
-      Titular: <strong>Rodrigo Nicolás Mercado</strong>
-    </p>
-    <button onclick="closeDonate()">Cerrar</button>
-  </div>
-</div>
-
-<header>
-  <h1>Grow Assistant</h1>
-
-  <nav>
-    <button onclick="showSection('plants')">Plantas</button>
-    <button onclick="showSection('calculator')">Riego</button>
-    <button onclick="showSection('diagnosis')">Diagnóstico</button>
-    <button onclick="showSection('environment')">Ambiente</button>
-    <button onclick="showSection('calendar')">Calendario</button>
-    <button onclick="showSection('costs')">Costos</button>
-    <button onclick="showSection('knowledge')">Guía</button>
+    <!-- NAVEGACIÓN INFERIOR -->
+  <nav class="bottom-nav">
+    <button onclick="showSection('plants')">🌱</button>
+    <button onclick="showSection('calculator')">💧</button>
+    <button onclick="showSection('diagnosis')">🧪</button>
+    <button onclick="showSection('calendar')">📅</button>
+    <button onclick="showSection('costs')">💰</button>
+    <button onclick="showSection('knowledge')">📘</button>
   </nav>
 
-  <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-</header>
+  <!-- CONTENIDO -->
+  <main class="app-content">
+    <section id="plants" class="section"></section>
+    <section id="calculator" class="section hidden"></section>
+    <section id="diagnosis" class="section hidden"></section>
+    <section id="environment" class="section hidden"></section>
+    <section id="calendar" class="section hidden"></section>
+    <section id="costs" class="section hidden"></section>
+    <section id="knowledge" class="section hidden"></section>
+  </main>
 
-<main>
-  <section id="plants" class="section active"></section>
-  <section id="calculator" class="section hidden"></section>
-  <section id="diagnosis" class="section hidden"></section>
-  <section id="environment" class="section hidden"></section>
-  <section id="calendar" class="section hidden"></section>
-  <section id="costs" class="section hidden"></section>
-  <section id="knowledge" class="section hidden"></section>
-</main>
 
-<footer>
-  <p>Estudios bless 2025 - Todos los derechos reservados&copy;</p>
-</footer>
 
-<button class="donate-btn" onclick="openDonate()">Donar</button>
+</div>
 
-<!-- LIBRERÍAS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<button class="donate-btn" onclick="openDonate()">💛</button>
 
 <!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/app.js"></script>
 <script src="js/plants.js"></script>
@@ -103,4 +61,3 @@
 
 </body>
 </html>
-

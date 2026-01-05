@@ -57,10 +57,12 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-left: 10%;
 }
 
 nav button {
-  background: rgba(255,255,255,0.15);
+  width: 75px;
+  background: rgba(0, 0, 0, 0.15);
   border: none;
   color: white;
   padding: 8px 14px;
@@ -135,7 +137,8 @@ li {
 ========================= */
 /* Overlay */
 .modal {
-  position: fixed;
+  position: absolute;
+  max-height: max-content;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
   display: none;
@@ -811,4 +814,60 @@ body.dark #costs button {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+@media (max-width: 620px) {
+  nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 10%;
+}
+
+nav button {
+  width: 55px;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+}
+
+@media (max-width: 400px) {
+  nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-left: 2%;
+}
+
+nav button {
+  width: 50px;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+}
+
+@media (max-width: 281px) {
+  nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+nav button {
+  width: 42px;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
 }
