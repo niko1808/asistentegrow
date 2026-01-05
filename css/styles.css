@@ -871,3 +871,22 @@ nav button {
   cursor: pointer;
 }
 }
+
+@media (min-width: 1024px) {
+  nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: 30%;
+}
+
+nav button {
+  width: 70px;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+}
