@@ -1,3 +1,9 @@
+const playstore = document.querySelector(".playstore");
+
+playstore.addEventListener("click", () => {
+  alert("Proximamente...")
+})
+
 document.addEventListener("DOMContentLoaded", () => {
   const accepted = localStorage.getItem("legalAccepted");
   if (!accepted) {
