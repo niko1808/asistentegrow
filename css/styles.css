@@ -6,7 +6,7 @@
   --primary-dark: #1b5e20;
   --secondary: #e8f5e9;
   --danger: #c62828;
-  --donate: #ffb300;
+  --donate: #73f36f;
 
   --text: #2c2c2c;
   --bg: linear-gradient(135deg, #f1f8f4, #e0efe6);
@@ -120,9 +120,9 @@ li {
    BOTÓN DONAR
 ========================= */
 .donate-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  position: relative;
+  left: 90%;
+  top: -200px;
   background: var(--donate);
   color: #000;
   border: none;
@@ -132,6 +132,8 @@ li {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
+
+
 
 /* =========================
    MODALES
@@ -798,6 +800,15 @@ body.dark #costs button {
 
 }
 
+.playstore{
+  height: 50px;
+  width: 70px;
+  position: relative;
+  right: -88%;
+  top: -40px;
+}
+
+
 
 /* Responsive */
 @media (max-width: 600px) {
@@ -805,6 +816,8 @@ body.dark #costs button {
     width: 100%;
     text-align: center;
   }
+
+  
   
 }
 
@@ -843,6 +856,16 @@ body.dark #costs button {
   }
 }
 
+@media(max-width: 920px){
+  .donate-btn{
+  position: relative;
+  left: 90%;
+  top: -200px;
+}
+}
+
+
+
 @media (max-width: 620px) {
   nav {
   display: flex;
@@ -860,6 +883,22 @@ nav button {
   border-radius: var(--radius);
   cursor: pointer;
 }
+
+.playstore{
+  height: 50px;
+  width: 70px;
+  position: relative;
+  right: -82%;
+  top: -40px;
+}
+
+.donate-btn{
+  position: relative;
+  left: 80%;
+  top: -200px;
+}
+
+  
 }
 
 @media (max-width: 420px) {
@@ -889,6 +928,27 @@ nav button {
 .theme-btn{
   margin-top: 30px;
 }
+
+.playstore{
+  height: 50px;
+  width: 70px;
+  position: relative;
+  right: -92%;
+  top: -40px;
+}
+.playstore{
+  height: 50px;
+  width: 70px;
+  position: relative;
+  right: -85%;
+  top: -60px;
+}
+.donate-btn{
+  position: relative;
+  left: 80%;
+  top: -200px;
+}
+
 }
 
 @media (max-width:376px) {
@@ -896,6 +956,40 @@ nav button {
     gap: 8px;
     margin-left: 20px;
   }
+
+  .playstore{
+  height: 50px;
+  width: 70px;
+  position: relative;
+  right: -84%;
+  top: -60px;
+}
+
+.donate-btn{
+  position: relative;
+  left: 80%;
+  top: -200px;
+}
+
+}
+
+@media (max-width:344px) {
+  nav{
+    gap: 3px;
+    margin-left: 10px;
+  }
+
+  .playstore{
+  right: -82%;
+  top: -60px;
+}
+
+.donate-btn{
+  position: relative;
+  left: 80%;
+  top: -200px;
+}
+
 }
 
 @media (max-width: 281px) {
@@ -913,6 +1007,12 @@ nav button {
   padding: 8px 14px;
   border-radius: var(--radius);
   cursor: pointer;
+}
+
+.donate-btn{
+  position: relative;
+  left: 80%;
+  top: -200px;
 }
 }
 
@@ -935,10 +1035,3 @@ nav button {
 }
 }
 
-.playstore{
-  height: 50px;
-  width: 70px;
-  position: relative;
-  right: -92%;
-  top: -40px;
-}
